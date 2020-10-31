@@ -25,6 +25,7 @@ export default Vue.extend({
 }
 
 #nav {
+  position: fixed;
   text-align:left;
   padding:20px;
   background: #2c3e50;
