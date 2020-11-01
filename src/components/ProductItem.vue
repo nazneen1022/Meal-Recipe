@@ -3,8 +3,10 @@
         <div>
              <span>{{item.strMeal}}</span>
         </div>
-        <figure>
+        <figure> 
+            <router-link :to="`/Products/${item.idMeal}`">
             <img :src="item.strMealThumb" alt="photo">
+            </router-link> 
         </figure>    
     </div>
 </template>
@@ -15,6 +17,7 @@ export default Vue.extend({
     name:'ProductItem',
     props:[
         "item",
+        "editItem"
     ]
 })
 </script>

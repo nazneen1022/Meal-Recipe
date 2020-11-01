@@ -1,10 +1,9 @@
 <template>
   <body>
      <div class="container">
-       <div v-for="product in products" :key="product.id">
+       <div v-for="product in products" :key="product.idMeal">
            <ProductItem :item="product"/>  
           <!-- <img :src="product.strMealThumb" alt="photo">  -->
-          
       </div>
      </div>
   </body>
@@ -23,19 +22,19 @@ export default Vue.extend({
   },
   data() {
     return {
-      products:[]
+      products:[],
     }
   },
   methods: {
-    async loadProducts(category:string) {
-            try{
-          const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
-            this.products= response.data.meals;
-          }
-          catch(error){
-            throw new Error(`API ${error}`);
-          };
-        }
+    async loadProducts(category:string): Promise<void> {
+      try{
+        const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+        this.products= response.data.meals;
+      }
+      catch(error){
+        throw new Error(`API ${error}`);
+      };
+    },
   },
   mounted() {
     this.loadProducts('Starter')
