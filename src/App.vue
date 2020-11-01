@@ -8,8 +8,8 @@
     <router-view/>
     <div class="main">
     </div>
-    <div class="footer">
-      
+    <div id="nav" class="footer">
+      <Footer />
     </div>
   </div>
 </template>
@@ -17,8 +17,14 @@
 <script lang="ts">
 import Vue from 'vue'
 
+//Components
+import Footer from "@/components/Footer.vue"
+
 export default Vue.extend({
   name:"App", 
+  components:{
+    Footer
+  }
 })
 </script>
 
@@ -41,7 +47,6 @@ export default Vue.extend({
     padding:50px;
     font-weight: bold;
     color: rgb(224, 215, 215);
-
     &.router-link-exact-active {
       color: orangered;
     }
@@ -57,10 +62,11 @@ body {
    position: fixed;
    z-index:1;
 }
-.menu { grid-area: menu; }
 .main { grid-area: main; }
 .right { grid-area: right; }
-.footer { grid-area: footer; }
+.footer { 
+  grid-area: footer;
+}
 
 .grid-container {
   display: grid;
