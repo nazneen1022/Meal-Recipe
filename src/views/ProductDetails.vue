@@ -154,4 +154,15 @@ body{
   
 }
 
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .left-half{
+    width:200px;
+    grid-column:1;
+  }
+  .right-half {
+    grid-column:1;
+  }
+}
+
 </style>

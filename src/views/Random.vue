@@ -95,7 +95,6 @@ body{
   left:1rem;
   padding-top:2.5rem;
   grid-column: 2;
-  width:max-content;
 }
 
 button{
@@ -105,5 +104,15 @@ button{
     padding:10px;
     border: 1px solid rgb(78, 82, 81);;
     border-radius: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .left-half{
+    grid-column:1;
+  }
+  .right-half {
+    grid-column:1;
+  }
 }
 </style>
