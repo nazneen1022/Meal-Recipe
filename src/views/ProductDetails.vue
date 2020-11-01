@@ -36,7 +36,6 @@
      
       <div class="text">
         <strong>Related Recipies:</strong> <br/>
-         {{similarProducts}}
            <div class="grid-container" >
              <div class="grid-item" v-for="item in similarProducts" :key="item.idMeal">
                {{item.strMeal}}<br/>

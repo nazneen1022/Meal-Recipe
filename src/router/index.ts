@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '@/views/Home.vue'
 import ProductDetails from "@/views/ProductDetails.vue"
+import Random from "@/views/Random.vue"
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes: Array<RouteConfig> = [
     path: '/Products/:idMeal',
     name: 'ProductDetails',
     component: ProductDetails
+  },
+  {
+    path: '/Random',
+    name: 'Randomizer',
+    component: Random
   },
 ]
 
