@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <img :src="item.strMealThumb" alt="photo" width="100%">
+    <div class="content">
+        <div>
+             <span>{{item.strMeal}}</span>
+        </div>
+        <figure>
+            <img :src="item.strMealThumb" alt="photo">
+        </figure>    
     </div>
 </template>
 
@@ -10,11 +15,15 @@ export default Vue.extend({
     name:'ProductItem',
     props:[
         "item",
-        "class1"
     ]
 })
 </script>
 
-<style>
+<style scoped>
+
+figure img {
+  width:100%;
+  height:auto;
+}
 
 </style>

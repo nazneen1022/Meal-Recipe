@@ -32,13 +32,11 @@ export default Vue.extend({
 }
 
 #nav {
-  width:100%;
-  height:5vh;
-  position: fixed;
-  text-align:left;
-  padding:20px;
+  top:0;
+  left:0;
+  right:0;
   background: #0f1a25;
-
+  width:100%;
   a {
     padding:50px;
     font-weight: bold;
@@ -54,7 +52,11 @@ body {
   margin: 0;
 }
 
-.header { grid-area: header; }
+.header { 
+  grid-area: header; 
+   position: fixed;
+   z-index:1;
+}
 .menu { grid-area: menu; }
 .main { grid-area: main; }
 .right { grid-area: right; }
@@ -63,9 +65,9 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-    'header header header header header header'
-    'main main main main main main'
-    'footer footer footer footer footer footer';
+    'header header header header'
+    'main main main main'
+    'footer footer footer footer';
   grid-gap: 10px;
   padding: 10px;
 }
@@ -75,5 +77,12 @@ body {
   text-align: center;
   padding: 20px 0;
   font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #nav{
+   grid-template-columns: auto;
+  }
 }
 </style>

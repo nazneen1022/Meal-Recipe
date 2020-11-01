@@ -2,8 +2,9 @@
   <body>
      <div class="container">
        <div v-for="product in products" :key="product.id">
-          <ProductItem :item="product"/> 
-          <!-- <img :src="product.strMealThumb" alt="photo" > -->
+           <ProductItem :item="product"/>  
+          <!-- <img :src="product.strMealThumb" alt="photo">  -->
+          
       </div>
      </div>
   </body>
@@ -45,28 +46,16 @@ export default Vue.extend({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 body{
   margin-top:10%;
 }
 .container {
   display: grid;
   align-content: space-between;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 25px;
+  grid-template-columns: auto auto auto ;
+  grid-gap: 30px;
+  position:relative;
 }
 
 .container > div {
@@ -74,10 +63,15 @@ body{
   text-align: center;
   font-size: 30px;
 }
-.container img {
-  width:100%;
-  
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .container{
+   grid-template-columns: auto;
+  }
 }
+
 
 
 </style>
