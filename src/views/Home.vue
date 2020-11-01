@@ -1,5 +1,14 @@
 <template>
   <body>
+    <div class="text">
+       <!-- <strong>Sort By </strong> -->
+       <select :model="sortBy" @change="event => selectOption(event.target.value)">
+         <option>Sort By</option>
+         <option>Meal Id</option>
+         <option>Name (Desc)</option>
+       </select>
+     </div>
+     
      <div class="container">
        <div v-for="product in products" :key="product.idMeal">
            <ProductItem :item="product" :category="$route.params.category"/>  
@@ -23,6 +32,7 @@ export default Vue.extend({
   data() {
     return {
       category:'Dessert',
+      sortBy:"",
       products:[],
     }
   },
@@ -36,9 +46,44 @@ export default Vue.extend({
         throw new Error(`API ${error}`);
       };
     },
+
+    selectOption(value:string){
+      //console.log("value:",value)
+      this.sortBy=value;
+      this.sortProducts(this.sortBy)
+    },
+    sortProducts(sortBy:string):void {
+      type Item={
+        strMeal:string;
+        idMeal:string;
+      }
+      switch (sortBy){
+        case 'Name (Desc)' :
+          this.products.sort((a:Item, b:Item) => {
+            if (a.strMeal > b.strMeal) { 
+              return -1;
+            }
+            if (a.strMeal > b.strMeal) {
+              return 1;
+            }
+            return 0;
+          });
+          break;
+        case 'Meal Id' :
+          this.products.sort((a:Item, b:Item) => {
+            if (a.idMeal < b.idMeal) { 
+              return -1;
+            }
+            if (a.idMeal > b.idMeal) {
+              return 1;
+            }
+            return 0;
+          });
+          break;
+      }
+    }
   },
   mounted() {
-    //console.log("here:",this.$route.params.category)
     this.loadProducts(this.$route.params.category || this.category)
   }
 
@@ -49,7 +94,7 @@ export default Vue.extend({
 <style scoped lang="scss">
 
 body{
-  margin-top:5%;
+  margin-top:2%;
 }
 .container {
   display: grid;
@@ -73,6 +118,20 @@ body{
   }
 }
 
-
+.text{
+  margin:20px;
+  text-align: right;
+  font-size: 1.5rem;
+  border:none;
+}
+select{
+  text-align: center;
+  text-decoration: none;
+  background: rgb(14, 16, 36);
+  color:white;
+  padding:10px;
+  border-radius: 20px;;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 </style>

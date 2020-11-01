@@ -10,12 +10,12 @@ const routes: Array<RouteConfig> = [
   
   {
     path: '/Products/:category',
-    name: 'Products',
+    name: 'SelectedProducts',
     component: Home
   },
   {
     path: '/Products',
-    name: 'Products',
+    name: 'DefaultProducts',
     component: Home
   },
   {
