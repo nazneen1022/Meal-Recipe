@@ -3,37 +3,38 @@
   <div class="container">
     <h1>{{product.strMeal}}</h1>
     <div class="left-half">
-      <img :src="product.strMealThumb" alt="altImage" width="100%" />
+      <img :src="product.strMealThumb" alt="altImage" width="500px"/>
     </div>
     <div class="right-half">
       <p class="text">
-        <!-- <u>Instructions:</u> <br/> {{product.strInstructions}} -->
-        <span v-if="product.strTags"><strong>Tags : </strong> {{product.strTags}}</span>
-        <br/>
-        <br/>
-        <b>Ingredients:</b> <br/>
+        <strong>Recipe Type </strong> {{product.strCategory}} <br/>
+        <strong>Origin </strong> {{product.strArea}} 
+        <br/> <br/>
+        <b>Ingredients</b> <br/>
         <span v-if="product.strIngredient1">{{product.strIngredient1}}</span>
-        <span v-if="product.strIngredient2"><br />{{product.strIngredient2}}</span>
-        <span v-if="product.strIngredient3"><br />{{product.strIngredient3}}</span>
-        <span v-if="product.strIngredient4"><br />{{product.strIngredient4}}</span>
-        <span v-if="product.strIngredient5"><br />{{product.strIngredient5}}</span>
-        <span v-if="product.strIngredient6"><br />{{product.strIngredient6}}</span>
-        <span v-if="product.strIngredient7"><br />{{product.strIngredient7}}</span>
-        <span v-if="product.strIngredient8"><br />{{product.strIngredient8}}</span>
-        <span v-if="product.strIngredient9"><br />{{product.strIngredient9}}</span>
-        <span v-if="product.strIngredient10"><br />{{product.strIngredient10}}</span>
-        <span v-if="product.strIngredient11"><br />{{product.strIngredient11}}</span>
-        <span v-if="product.strIngredient12"><br />{{product.strIngredient12}}</span>
-        <span v-if="product.strIngredient13"><br />{{product.strIngredient13}}</span>
-        <span v-if="product.strIngredient14"><br />{{product.strIngredient14}}</span>
-        <span v-if="product.strIngredient15"><br />{{product.strIngredient15}}</span>
-        <span v-if="product.strIngredient16"><br />{{product.strIngredient16}}</span>
-        <span v-if="product.strIngredient17"><br />{{product.strIngredient17}}</span>
-        <span v-if="product.strIngredient18"><br />{{product.strIngredient18}}</span>
-        <span v-if="product.strIngredient19"><br />{{product.strIngredient19}}</span>
-        <span v-if="product.strIngredient20"><br />{{product.strIngredient20}}</span>
+        <span v-if="product.strIngredient2">, {{product.strIngredient2}}</span>
+        <span v-if="product.strIngredient3">, {{product.strIngredient3}}</span>
+        <span v-if="product.strIngredient4">, {{product.strIngredient4}}</span>
+        <span v-if="product.strIngredient5">, {{product.strIngredient5}}</span>
+        <span v-if="product.strIngredient6">, {{product.strIngredient6}}</span>
+        <span v-if="product.strIngredient7">, {{product.strIngredient7}}</span>
+        <span v-if="product.strIngredient8">, {{product.strIngredient8}}</span>
+        <span v-if="product.strIngredient9">, {{product.strIngredient9}}</span>
+        <span v-if="product.strIngredient10">, {{product.strIngredient10}}</span>
+        <span v-if="product.strIngredient11">, {{product.strIngredient11}}</span>
+        <span v-if="product.strIngredient12">, {{product.strIngredient12}}</span>
+        <span v-if="product.strIngredient13">, {{product.strIngredient13}}</span>
+        <span v-if="product.strIngredient14">, {{product.strIngredient14}}</span>
+        <span v-if="product.strIngredient15">, {{product.strIngredient15}}</span>
+        <span v-if="product.strIngredient16">, {{product.strIngredient16}}</span>
+        <span v-if="product.strIngredient17">, {{product.strIngredient17}}</span>
+        <span v-if="product.strIngredient18">, {{product.strIngredient18}}</span>
+        <span v-if="product.strIngredient19">, {{product.strIngredient19}}</span>
+        <span v-if="product.strIngredient20">, {{product.strIngredient20}}</span>
+        <br/>
+        <br/>
+        <span v-if="product.strTags"><strong>Tags : </strong> {{product.strTags}}</span>
       </p>
-     
       <div class="text">
         <strong>Related Recipies:</strong> <br/>
            <div class="grid-container" >
@@ -60,6 +61,8 @@ import axios from "axios"
 export default Vue.extend({
   name:"ProductDetails",
   data(){
+
+  console.log("here:",this.$route.params.idMeal)
     return {
       id:parseInt(this.$route.params.idMeal),
       product:{},
@@ -122,6 +125,7 @@ body{
   font-family: 'Trebuchet MS''Lucida Sans Unicode''Lucida Grande''Lucida Sans'Arialsans-serif;
   text-align: left;
   font-size: 1.2rem;
+  
 }
 .grid-container {
   display: grid;
@@ -139,7 +143,8 @@ body{
 }
 
 .left-half {
-  grid-column: 1
+  grid-column: 1;
+  width:500px;
 }
 
 .right-half {

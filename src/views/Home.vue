@@ -2,7 +2,7 @@
   <body>
      <div class="container">
        <div v-for="product in products" :key="product.idMeal">
-           <ProductItem :item="product"/>  
+           <ProductItem :item="product" :category="$route.params.category"/>  
           <!-- <img :src="product.strMealThumb" alt="photo">  -->
       </div>
      </div>
@@ -22,6 +22,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      category:'Dessert',
       products:[],
     }
   },
@@ -37,7 +38,8 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.loadProducts('Vegetarian')
+    //console.log("here:",this.$route.params.category)
+    this.loadProducts(this.$route.params.category || this.category)
   }
 
 });

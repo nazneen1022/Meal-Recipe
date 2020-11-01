@@ -7,13 +7,19 @@ import Random from "@/views/Random.vue"
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
+  
+  {
+    path: '/Products/:category',
+    name: 'Products',
+    component: Home
+  },
   {
     path: '/Products',
     name: 'Products',
     component: Home
   },
   {
-    path: '/Products/:idMeal',
+    path: '/Products/:category/:idMeal',
     name: 'ProductDetails',
     component: ProductDetails
   },

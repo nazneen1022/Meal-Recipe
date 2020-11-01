@@ -4,7 +4,7 @@
              <span>{{item.strMeal}}</span>
         </div>
         <figure> 
-            <router-link :to="`/Products/${item.idMeal}`">
+            <router-link :to="`/Products/${category}/${item.idMeal}`">
             <img :src="item.strMealThumb" alt="photo">
             </router-link> 
         </figure>    
@@ -17,7 +17,7 @@ export default Vue.extend({
     name:'ProductItem',
     props:[
         "item",
-        "editItem"
+        "category"
     ]
 })
 </script>

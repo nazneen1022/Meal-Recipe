@@ -77,16 +77,15 @@ export default Vue.extend({
 
 <style scoped>
 body{
-  margin-top:5%;
+  margin-top:2%;
 }
 .container {
   display: grid;
-  grid-gap: 10px;
 }
 
 .left-half {
   grid-column: 1;
-  width:300px;
+  width:500px;
   padding-left:2rem;
   padding-top:2rem;
   text-align: left;
@@ -96,14 +95,15 @@ body{
   left:1rem;
   padding-top:2.5rem;
   grid-column: 2;
-  width:700px; 
+  width:max-content;
 }
 
 button{
-    background: rgb(7, 189, 174);
-    color: black;
+    background: rgb(57, 59, 59);
+    font-size:1.5rem;
+    color: rgb(247, 240, 240);
     padding:10px;
-    border: 1px solid rgb(7, 189, 174);;
+    border: 1px solid rgb(78, 82, 81);;
     border-radius: 10px;
 }
 </style>

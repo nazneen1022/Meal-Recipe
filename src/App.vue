@@ -1,11 +1,6 @@
 <template>
   <div id="app" class="grid-container">
-    <div id="nav" class="header">
-      <router-link to="/Products">Home</router-link> 
-      <router-link to="/List">Categories</router-link> 
-      <router-link to="/Random">Random</router-link>
-    </div>
-    <router-view/>
+    <Navigation />
     <div id="nav" class="footer">
       <Footer />
     </div>
@@ -16,12 +11,24 @@
 import Vue from 'vue'
 
 //Components
+import Navigation from "@/components/Navigation.vue"
 import Footer from "@/components/Footer.vue"
 
 export default Vue.extend({
   name:"App", 
   components:{
+    Navigation,
     Footer
+  },
+  data(){
+    return {
+      clicked:false
+    }
+  },
+  methods:{
+    selectCategory(){
+      this.clicked=true
+    }
   }
 })
 </script>
@@ -89,4 +96,5 @@ body {
    grid-template-columns: auto;
   }
 }
+
 </style>
