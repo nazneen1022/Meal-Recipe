@@ -4,15 +4,21 @@
         <div id="navigation">
             <ul id="navlist">   
                 <li><a href="/Products">Home</a></li>
+                <li><a href="/Products">Home</a></li>
+                <li><a href="/Products">Home</a></li>
             </ul>
         </div>
         <div id="navigation">
             <ul id="navlist"> 
                 <li><a href="/About">About</a></li>
+                <li><a href="/About">About</a></li>
+                <li><a href="/About">About</a></li>
             </ul>
         </div>
         <div id="navigation">
             <ul id="navlist">
+                <li><a href="/References">References</a></li>
+                <li><a href="/References">References</a></li>
                 <li><a href="/References">References</a></li>
             </ul>
         </div>
@@ -35,6 +41,7 @@ export default Vue.extend({
 
 #navigation {
     position: relative;
+    float: left;
 }
 
 #navlist li {
