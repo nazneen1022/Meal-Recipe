@@ -34,7 +34,7 @@ export default Vue.extend({
 
 figure img {
   width:100%;
-  height:auto;
+  height:400px;
 }
 
 </style>

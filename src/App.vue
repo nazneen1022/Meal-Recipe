@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="grid-container">
     <Navigation />
-    <div id="nav" class="footer">
+    <div class="footer">
       <Footer />
     </div>
   </div>
@@ -42,21 +42,6 @@ export default Vue.extend({
   color: #2c3e50;
 }
 
-#nav {
-  top:0;
-  left:0;
-  right:0;
-  background: #0f1a25;
-  width:100%;
-  a {
-    padding:50px;
-    font-weight: bold;
-    color: rgb(224, 215, 215);
-    &.router-link-exact-active {
-      color: orangered;
-    }
-  }
-}
 
 body {
   margin: 0;
@@ -70,7 +55,7 @@ body {
 .main { grid-area: main; }
 .right { grid-area: right; }
 .footer { 
-  grid-area: footer;
+  grid-area: myfooter;;
 }
 
 .grid-container {
@@ -78,7 +63,7 @@ body {
   grid-template-areas:
     'header header header header'
     'main main main main'
-    'footer footer footer footer';
+    'myfooter myfooter myfooter myfooter';
   grid-gap: 10px;
   padding: 10px;
 }

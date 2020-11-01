@@ -9,7 +9,7 @@
     </button>
     <div class="dropdown-content">
         <a href="/Products/Vegetarian">Vegeterian</a> 
-        <a href="/Products/Starter">Starter</a>
+        <a href="/Products/SeaFood">SeaFood</a>
         <a href="/Products/Chicken">Chicken</a>
         <a href="/Products/Dessert">Dessert</a>
     </div>
