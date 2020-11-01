@@ -47,7 +47,7 @@ export default Vue.extend({
 <style scoped lang="scss">
 
 body{
-  margin-top:10%;
+  margin-top:5%;
 }
 .container {
   display: grid;

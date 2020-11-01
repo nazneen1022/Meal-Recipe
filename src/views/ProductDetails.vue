@@ -115,7 +115,7 @@ export default Vue.extend({
 
 <style scoped>
 body{
-  margin-top:10%;
+  margin-top:5%;
 }
 
 .text{
