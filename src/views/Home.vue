@@ -1,18 +1,15 @@
 <template>
   <body>
     <div class="text">
-       <!-- <strong>Sort By </strong> -->
        <select :model="sortBy" @change="event => selectOption(event.target.value)">
          <option>Sort By</option>
          <option>Meal Id</option>
          <option>Name (Desc)</option>
        </select>
-     </div>
-     
-     <div class="container">
+      </div>
+      <div class="container">
        <div v-for="product in products" :key="product.idMeal">
-           <ProductItem :item="product" :category="$route.params.category"/>  
-          <!-- <img :src="product.strMealThumb" alt="photo">  -->
+           <ProductItem :item="product" :category="$route.params.category || category"/>  
       </div>
      </div>
   </body>
@@ -40,7 +37,7 @@ export default Vue.extend({
     async loadProducts(category:string): Promise<void> {
       try{
         const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
-        this.products= response.data.meals;
+        this.products= response.data.meals.slice(0,10);
       }
       catch(error){
         throw new Error(`API ${error}`);
@@ -48,7 +45,6 @@ export default Vue.extend({
     },
 
     selectOption(value:string){
-      //console.log("value:",value)
       this.sortBy=value;
       this.sortProducts(this.sortBy)
     },
@@ -80,6 +76,9 @@ export default Vue.extend({
             return 0;
           });
           break;
+          default :{
+            this.sortBy="";
+          }
       }
     }
   },

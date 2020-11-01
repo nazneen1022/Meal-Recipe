@@ -40,7 +40,7 @@
            <div class="grid-container" >
              <div class="grid-item" v-for="item in similarProducts" :key="item.idMeal">
                {{item.strMeal}}<br/>
-               <router-link :to="`/Products/${item.idMeal}`">
+               <router-link :to="`/Products/${product.strCategory}/${item.idMeal}`">
                <img :src="item.strMealThumb" alt="noImage" width="50%" />
                </router-link>
             </div>
