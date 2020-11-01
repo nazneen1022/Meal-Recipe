@@ -37,7 +37,7 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.loadProducts('Starter')
+    this.loadProducts('Vegetarian')
   }
 
 });
