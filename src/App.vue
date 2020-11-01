@@ -6,8 +6,6 @@
       <router-link to="/Random">Random</router-link>
     </div>
     <router-view/>
-    <div class="main">
-    </div>
     <div id="nav" class="footer">
       <Footer />
     </div>

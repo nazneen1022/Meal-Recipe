@@ -19,7 +19,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/Random',
-    name: 'Randomizer',
+    name: 'Random',
     component: Random
   },
 ]
