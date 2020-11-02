@@ -113,7 +113,7 @@ export default Vue.extend({
 @media only screen and (min-width: 1290px) {
   /* For big screens */
   .header{
-  margin-top:2%;
+  margin-top:10%;
 }
   .container{
    grid-template-columns: auto auto auto auto;
@@ -123,7 +123,7 @@ export default Vue.extend({
 @media only screen and (max-width: 992px) {
   /* For tablets */
   .header{
-  margin-top:15%;
+  margin-top:20%;
 }
 .text{
   text-align: center;

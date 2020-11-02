@@ -51,7 +51,7 @@ export default Vue.extend({
 }
 
 #navigation h1 {
-  font-size:20px;  
+  font-size:2rem;  
 }
 #navigation {
 	position: relative;
@@ -59,10 +59,7 @@ export default Vue.extend({
     background:transparent;
     margin:0 1% 0 1% ;
 }
-#navigation,#navlist{
-  width:220px;
-  margin:15px;
-}
+
 
 #navlist li {
   font-size:1em;
