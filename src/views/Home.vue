@@ -1,8 +1,9 @@
 <template>
   <body class="header">
     <div class="text">
+      <em>Sort by </em>
        <select :model="sortBy" @change="event => selectOption(event.target.value)">
-         <option>Sort By</option>
+         <option>Select</option>
          <option>Meal Id</option>
          <option>Name (Desc)</option>
        </select>
@@ -28,8 +29,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      category:'SeaFood',
-      sortBy:"",
+      category:'SeaFood' as string,
+      sortBy:"" as string,
       products:[],
     }
   },
@@ -127,6 +128,7 @@ select{
   text-align: center;
   text-decoration: none;
   background: rgb(14, 16, 36);
+  font-size:1.2rem;
   color:white;
   padding:10px;
   border-radius: 20px;;

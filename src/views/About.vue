@@ -1,8 +1,10 @@
 <template>
+<body>
     <div class="container">
-        <img src="@/assets/welcome.jpg" alt="no-Image" width="100%"/>
-        <div class="centered">Welcome to your favorite Meal Recipes App</div>
+        <img src="@/assets/welcome.jpg" alt="no-Image" width="100%" height="920px"/>
+        <div class="centered"><em>Favorite Meal Recipes</em></div>
     </div> 
+</body>
 </template>
 
 <script lang="ts">
@@ -13,14 +15,18 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+body{
+  margin-top:2.5%;
+}
 .container {
   position: relative;
   text-align: center;
   color: white;
 }
 .centered {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-size: 2.5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 3.5rem;
+  color:rgb(12, 13, 36);
   position: absolute;
   top: 40%;
   left: 50%;

@@ -18,8 +18,7 @@
                  {{randomRecipe.strInstructions.slice(0,380)}}...
                 <p>
                  <strong v-if="randomRecipe.strSource">Source </strong>{{randomRecipe.strSource}} 
-                 </p>
-                 </p>
+                </p>
             </div>
         </div>
         <div class="right-half">
@@ -76,8 +75,8 @@ body{
 }
 .container {
   display: grid;
-  grid-template-columns: auto auto;
-  height:100vh
+  grid-template-columns: auto auto ;
+  height:60vh
 }
 
 .left-half {
@@ -96,7 +95,7 @@ body{
 }
 
 button{
-    background: rgb(55, 42, 238);
+    background: rgb(11, 9, 37);
     font-size:1.5rem;
     color: rgb(247, 240, 240);
     padding:10px;
