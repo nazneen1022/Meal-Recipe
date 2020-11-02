@@ -32,7 +32,7 @@ There are four different categories of Recipes are available.
 
 - Footer
 
-1. Footercontainsatleastag​ eneratedsitemap​.
+1. Footercontains generated sitemap​.
 
 - Randomizer page
 
