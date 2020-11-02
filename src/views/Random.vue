@@ -105,7 +105,10 @@ button{
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 600px) {
+    body{
+        margin-top:50%;
+    }
   .left-half{
     grid-column:1;
     width:100%;

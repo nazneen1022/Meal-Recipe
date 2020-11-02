@@ -107,13 +107,6 @@ export default Vue.extend({
 }
 
 @media screen and (max-width: 600px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
-.dropdown{
-    float: none;
-    width: 100%;
-  }
+ 
 }
 </style>
