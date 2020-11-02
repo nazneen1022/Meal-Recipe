@@ -3,7 +3,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="sticky navbar">
   <div class="dropdown">
-    <button class="dropbtn">Categories   <i class="fa fa-caret-down"></i></button>
+    <button class="dropbtn">Categories <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-content">
         <a href="/Products/Vegetarian">Vegeterian</a> 
         <a href="/Products/SeaFood">SeaFood</a>
@@ -11,12 +11,27 @@
         <a href="/Products/Dessert">Dessert</a>
     </div>
   </div> 
-  <router-link to="/Products">Home</router-link>
-  <router-link to="/Random">Random</router-link>
+  <router-link :to="`/Products/${this.$route.params.category || this.category}`">Home</router-link>
+  <router-link to="/Randomizer">Random</router-link>
 </div>
 <router-view />
 </body>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  name:"Navigation",
+  data(){
+    return {
+      category:""
+    }
+  },
+  mounted(){
+    this.category= 'SeaFood'
+  }
+})
+</script>
 
 <style scoped>
 .sticky {

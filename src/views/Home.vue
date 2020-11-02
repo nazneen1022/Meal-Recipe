@@ -98,7 +98,7 @@ export default Vue.extend({
 .container {
   display: grid;
   align-content: space-between;
-  grid-template-columns: auto auto auto ;
+  grid-template-columns: auto auto auto auto;
   grid-gap: 30px;
   position:relative;
 }

@@ -11,26 +11,7 @@
         <strong>Origin </strong> {{product.strArea}} 
         <br/> <br/>
         <b>Ingredients</b> <br/>
-        <span v-if="product.strIngredient1">{{product.strIngredient1}}</span>
-        <span v-if="product.strIngredient2">, {{product.strIngredient2}}</span>
-        <span v-if="product.strIngredient3">, {{product.strIngredient3}}</span>
-        <span v-if="product.strIngredient4">, {{product.strIngredient4}}</span>
-        <span v-if="product.strIngredient5">, {{product.strIngredient5}}</span>
-        <span v-if="product.strIngredient6">, {{product.strIngredient6}}</span>
-        <span v-if="product.strIngredient7">, {{product.strIngredient7}}</span>
-        <span v-if="product.strIngredient8">, {{product.strIngredient8}}</span>
-        <span v-if="product.strIngredient9">, {{product.strIngredient9}}</span>
-        <span v-if="product.strIngredient10">, {{product.strIngredient10}}</span>
-        <span v-if="product.strIngredient11">, {{product.strIngredient11}}</span>
-        <span v-if="product.strIngredient12">, {{product.strIngredient12}}</span>
-        <span v-if="product.strIngredient13">, {{product.strIngredient13}}</span>
-        <span v-if="product.strIngredient14">, {{product.strIngredient14}}</span>
-        <span v-if="product.strIngredient15">, {{product.strIngredient15}}</span>
-        <span v-if="product.strIngredient16">, {{product.strIngredient16}}</span>
-        <span v-if="product.strIngredient17">, {{product.strIngredient17}}</span>
-        <span v-if="product.strIngredient18">, {{product.strIngredient18}}</span>
-        <span v-if="product.strIngredient19">, {{product.strIngredient19}}</span>
-        <span v-if="product.strIngredient20">, {{product.strIngredient20}}</span>
+        {{allIngredients}}
         <br/>
         <br/>
         <span v-if="product.strTags"><strong>Tags : </strong> {{product.strTags}}</span>
@@ -39,7 +20,8 @@
         <strong>Related Recipies:</strong> <br/>
            <div class="grid-container" >
              <div class="grid-item" v-for="item in similarProducts" :key="item.idMeal">
-               {{item.strMeal}}<br/>
+               <span v-if="item.strMeal.length > 25">{{item.strMeal.slice(0,25)}}...</span>
+               <span v-else>{{item.strMeal}}</span><br/>
                <img :src="item.strMealThumb" alt="noImage" width="50%" />
             </div>
           </div>
@@ -61,11 +43,11 @@ export default Vue.extend({
   data(){
     return {
       id:parseInt(this.$route.params.idMeal),
-      product:{},
-      //mainIngredient:"",
-      area:"",
-      similarProducts:{},
-      error:"",
+      product:{} as object,
+      area:"" as string,
+      allIngredients:[] as Array<string>,
+      similarProducts:{} as object,
+      error:"" as string,
     }
   },
   methods:{
@@ -74,7 +56,13 @@ export default Vue.extend({
         const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${itemId}`)
         this.product= response.data.meals[0];
         this.area=response.data.meals[0].strArea;
-        //this.mainIngredient=response.data.meals[0].strIngredient1;
+
+        this.allIngredients=response.data.meals[0].strIngredient1
+        for(let i=2; i<=20; i++){
+          const ingredient = response.data.meals[0][`strIngredient${i}`]
+          if (ingredient)
+            this.allIngredients = this.allIngredients.concat(', ').concat(ingredient);
+        }
       }
       catch(error){
         throw new Error(`API ${error}`);
@@ -123,7 +111,7 @@ body{
   font-family: 'Trebuchet MS''Lucida Sans Unicode''Lucida Grande''Lucida Sans'Arialsans-serif;
   text-align: left;
   font-size: 1.2rem;
-  
+  width:80%;
 }
 .grid-container {
   display: grid;
@@ -131,7 +119,7 @@ body{
 }
 
 .grid-item {
-  padding: 10px;
+  padding: 5px;
   font-size: 15px;
   text-align: center;
 }
@@ -142,10 +130,11 @@ body{
 
 .left-half {
   grid-column: 1;
-  width:500px;
+  width:30%;
 }
 
 .right-half {
+  width:65%;
   left:1rem;
   padding-left:2rem;
   grid-column: 2;
@@ -155,7 +144,7 @@ body{
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .left-half{
-    width:200px;
+    width:300px;
     grid-column:1;
   }
   .right-half {

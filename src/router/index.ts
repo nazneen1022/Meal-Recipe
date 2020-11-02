@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
 import ProductDetails from "@/views/ProductDetails.vue"
 import Random from "@/views/Random.vue"
 
@@ -13,9 +14,9 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: '/Products',
-    name: 'DefaultProducts',
-    component: Home
+    path: '/',
+    name: 'About',
+    component: About
   },
   {
     path: '/Products/:category/:idMeal',
@@ -23,7 +24,7 @@ const routes: Array<RouteConfig> = [
     component: ProductDetails
   },
   {
-    path: '/Random',
+    path: '/Randomizer',
     name: 'Random',
     component: Random
   },

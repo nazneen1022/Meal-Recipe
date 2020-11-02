@@ -11,31 +11,19 @@
                 </span>
                 <p>
                     <b>Ingredients:</b> <br/>
-                    <span v-if="randomRecipe.strIngredient1">{{randomRecipe.strIngredient1}}</span>
-                    <span v-if="randomRecipe.strIngredient2">, {{randomRecipe.strIngredient2}}</span>
-                    <span v-if="randomRecipe.strIngredient3">, {{randomRecipe.strIngredient3}}</span>
-                    <span v-if="randomRecipe.strIngredient4">, {{randomRecipe.strIngredient4}}</span>
-                    <span v-if="randomRecipe.strIngredient5">, {{randomRecipe.strIngredient5}}</span>
-                    <span v-if="randomRecipe.strIngredient6">, {{randomRecipe.strIngredient6}}</span>
-                    <span v-if="randomRecipe.strIngredient7">, {{randomRecipe.strIngredient7}}</span>
-                    <span v-if="randomRecipe.strIngredient8">, {{randomRecipe.strIngredient8}}</span>
-                    <span v-if="randomRecipe.strIngredient9">, {{randomRecipe.strIngredient9}}</span>
-                    <span v-if="randomRecipe.strIngredient10">, {{randomRecipe.strIngredient10}}</span>
-                    <span v-if="randomRecipe.strIngredient11">, {{randomRecipe.strIngredient11}}</span>
-                    <span v-if="randomRecipe.strIngredient12">, {{randomRecipe.strIngredient12}}</span>
-                    <span v-if="randomRecipe.strIngredient13">, {{randomRecipe.strIngredient13}}</span>
-                    <span v-if="randomRecipe.strIngredient14">, {{randomRecipe.strIngredient14}}</span>
-                    <span v-if="randomRecipe.strIngredient15">, {{randomRecipe.strIngredient15}}</span>
-                    <span v-if="randomRecipe.strIngredient16">, {{randomRecipe.strIngredient16}}</span>
-                    <span v-if="randomRecipe.strIngredient17">, {{randomRecipe.strIngredient17}}</span>
-                    <span v-if="randomRecipe.strIngredient18">, {{randomRecipe.strIngredient18}}</span>
-                    <span v-if="randomRecipe.strIngredient19">, {{randomRecipe.strIngredient19}}</span>
-                    <span v-if="randomRecipe.strIngredient20">, {{randomRecipe.strIngredient20}}</span>
+                     {{allIngredients}}
                 </p>
+                <p>
+                 <strong><u>Instructions:</u></strong><br/> 
+                 {{randomRecipe.strInstructions.slice(0,380)}}...
+                <p>
+                 <strong v-if="randomRecipe.strSource">Source </strong>{{randomRecipe.strSource}} 
+                 </p>
+                 </p>
             </div>
         </div>
         <div class="right-half">
-            <img :src="randomRecipe.strMealThumb" alt="noimage" width="50%"/>
+            <img :src="randomRecipe.strMealThumb" alt="noimage" width="100%"/>
         </div>
         <p>
             <button @click="getAnotherRandom()">Another</button>
@@ -52,7 +40,8 @@ export default Vue.extend({
     data(){
         return {
             msg:"Random page",
-            randomRecipe:{}
+            randomRecipe:{} as Object,
+            allIngredients:[] as Array<string>,
         }
     },
     methods: {
@@ -60,6 +49,12 @@ export default Vue.extend({
             try{
             const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/random.php`)
             this.randomRecipe=response.data.meals[0];
+            this.allIngredients=response.data.meals[0].strIngredient1
+            for(let i=2; i<=20; i++){
+                const ingredient = response.data.meals[0][`strIngredient${i}`]
+                if (ingredient)
+                this.allIngredients = this.allIngredients.concat(', ').concat(ingredient);
+            }
             }
             catch(error){
                 throw new Error(`API ${error}`);
@@ -81,29 +76,32 @@ body{
 }
 .container {
   display: grid;
+  grid-template-columns: auto auto;
+  height:100vh
 }
 
 .left-half {
   grid-column: 1;
-  width:500px;
-  padding-left:2rem;
+  width:50%;
+  padding-left:20rem;
   padding-top:2rem;
   text-align: left;
+
 }
 
 .right-half {
-  left:1rem;
   padding-top:2.5rem;
   grid-column: 2;
+  width:50%;
 }
 
 button{
-    background: rgb(57, 59, 59);
+    background: rgb(55, 42, 238);
     font-size:1.5rem;
     color: rgb(247, 240, 240);
     padding:10px;
     border: 1px solid rgb(78, 82, 81);;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
