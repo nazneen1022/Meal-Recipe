@@ -40,9 +40,7 @@
            <div class="grid-container" >
              <div class="grid-item" v-for="item in similarProducts" :key="item.idMeal">
                {{item.strMeal}}<br/>
-               <router-link :to="`/Products/${product.strCategory}/${item.idMeal}`">
                <img :src="item.strMealThumb" alt="noImage" width="50%" />
-               </router-link>
             </div>
           </div>
       </div>
@@ -61,13 +59,11 @@ import axios from "axios"
 export default Vue.extend({
   name:"ProductDetails",
   data(){
-
-  console.log("here:",this.$route.params.idMeal)
     return {
       id:parseInt(this.$route.params.idMeal),
       product:{},
-      mainIngredient:"",
-      category:"",
+      //mainIngredient:"",
+      area:"",
       similarProducts:{},
       error:"",
     }
@@ -77,20 +73,22 @@ export default Vue.extend({
       try{
         const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${itemId}`)
         this.product= response.data.meals[0];
-        this.category=response.data.meals[0].strCategory;
-        this.mainIngredient=response.data.meals[0].strIngredient1;
+        this.area=response.data.meals[0].strArea;
+        //this.mainIngredient=response.data.meals[0].strIngredient1;
       }
       catch(error){
         throw new Error(`API ${error}`);
       };
-      this.getSimilarProducts(this.mainIngredient)
+      this.getSimilarProducts(this.area)
     },
-    async getSimilarProducts(ingredient:string): Promise<void> {
+    async getSimilarProducts(area:string): Promise<void> {
+      
       try{
-      const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+      const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`)
       type Item={
         idMeal:string,
       }
+      
       const data = response.data.meals;
       const filterByIngredient:Array<{}> = data.filter((item:Item) => {
         return item.idMeal !== this.id.toString()
