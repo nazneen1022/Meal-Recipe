@@ -28,7 +28,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      category:'Dessert',
+      category:'SeaFood',
       sortBy:"",
       products:[],
     }
