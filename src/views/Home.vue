@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class="header">
     <div class="text">
        <select :model="sortBy" @change="event => selectOption(event.target.value)">
          <option>Sort By</option>
@@ -92,8 +92,8 @@ export default Vue.extend({
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-body{
-  margin-top:2%;
+.header{
+  margin-top:5%;
 }
 .container {
   display: grid;

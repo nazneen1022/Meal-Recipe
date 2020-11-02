@@ -1,5 +1,4 @@
 <template>
-<body>
     <div>
         <div id="navigation" class="footer">
             <h2>Category</h2>
@@ -20,7 +19,6 @@
         </div>
         
 </div>
-</body>
 </template>
 
 <script lang="ts">
@@ -30,7 +28,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .footer{
     background: #0f1a25;
     width:100%;
@@ -39,7 +37,6 @@ export default Vue.extend({
 }
 
 #navigation {
-	position: relative;
 	float: left;
 }
 

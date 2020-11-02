@@ -7,7 +7,6 @@ import Random from "@/views/Random.vue"
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
-  
   {
     path: '/Products/:category',
     name: 'SelectedProducts',
