@@ -85,13 +85,13 @@ export default Vue.extend({
   display: none;
   position: fixed;
   background-color: #f9f9f9;
-  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
-  z-index: 99;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  z-index: 100;
 }
 
 .dropdown-content a {
   float: none;
-  font-size:1.2rem;
+  font-size:1rem;
   color: rgb(47, 88, 202);
   text-decoration: none;
   display: block;

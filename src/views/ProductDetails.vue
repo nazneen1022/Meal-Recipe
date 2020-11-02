@@ -20,7 +20,7 @@
         <strong>Related Recipies:</strong> <br/>
            <div class="grid-container" >
              <div class="grid-item" v-for="item in similarProducts" :key="item.idMeal">
-               <span v-if="item.strMeal.length > 25">{{item.strMeal.slice(0,25)}}...</span>
+               <span v-if="item.strMeal.length > 20">{{item.strMeal.slice(0,20)}}...</span>
                <span v-else>{{item.strMeal}}</span><br/>
                <img :src="item.strMealThumb" alt="noImage" width="50%" />
             </div>
@@ -134,15 +134,28 @@ body{
 }
 
 .right-half {
-  width:65%;
   left:1rem;
-  padding-left:2rem;
+  padding-left:1rem;
   grid-column: 2;
   
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
+@media only screen and (min-width: 1290px) {
+  /* For big screens */
+}
+@media screen and (max-width: 992px) {
+  /*Tablets*/ 
+   .left-half{
+    width:300px;
+    grid-column:1;
+  }
+  .right-half {
+    grid-column:1;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .left-half{
     width:300px;
     grid-column:1;

@@ -23,10 +23,11 @@
         </div>
         <div class="right-half">
             <img :src="randomRecipe.strMealThumb" alt="noimage" width="100%"/>
-        </div>
-        <p>
+             <p>
             <button @click="getAnotherRandom()">Another</button>
         </p>
+        </div>
+       
     </div>
     </body>
 </template>
@@ -71,27 +72,26 @@ export default Vue.extend({
 
 <style scoped>
 body{
-  margin-top:2%;
+  margin-top:5%;
 }
 .container {
   display: grid;
   grid-template-columns: auto auto ;
-  height:60vh
+  height:fit-content;
 }
 
 .left-half {
   grid-column: 1;
   width:50%;
-  padding-left:20rem;
+  padding-left:10rem;
   padding-top:2rem;
   text-align: left;
-
 }
 
 .right-half {
   padding-top:2.5rem;
   grid-column: 2;
-  width:50%;
+  width:100%;
 }
 
 button{
@@ -104,12 +104,18 @@ button{
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 992px) {
   .left-half{
     grid-column:1;
+    width:100%;
+    padding-left:0;
   }
   .right-half {
     grid-column:1;
+  }
+  button{
+      font-size:1rem;
   }
 }
 </style>

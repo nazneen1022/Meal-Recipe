@@ -94,12 +94,12 @@ export default Vue.extend({
 <style scoped lang="scss">
 
 .header{
-  margin-top:5%;
+  margin-top:10%;
 }
 .container {
   display: grid;
   align-content: space-between;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   grid-gap: 30px;
   position:relative;
 }
@@ -110,8 +110,21 @@ export default Vue.extend({
   font-size: 30px;
 }
 
+@media only screen and (min-width: 1290px) {
+  /* For big screens */
+  .container{
+   grid-template-columns: auto auto auto auto;
+  }
+}
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
+  /* For tablets */
+  .container{
+   grid-template-columns: auto auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   /* For mobile phones: */
   .container{
    grid-template-columns: auto;
