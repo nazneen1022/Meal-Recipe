@@ -105,4 +105,15 @@ export default Vue.extend({
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+@media screen and (max-width: 600px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+.dropdown{
+    float: none;
+    width: 100%;
+  }
+}
 </style>

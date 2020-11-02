@@ -112,6 +112,9 @@ export default Vue.extend({
 
 @media only screen and (min-width: 1290px) {
   /* For big screens */
+  .header{
+  margin-top:2%;
+}
   .container{
    grid-template-columns: auto auto auto auto;
   }
@@ -119,6 +122,12 @@ export default Vue.extend({
 
 @media only screen and (max-width: 992px) {
   /* For tablets */
+  .header{
+  margin-top:15%;
+}
+.text{
+  text-align: center;
+  }
   .container{
    grid-template-columns: auto auto;
   }
@@ -126,6 +135,12 @@ export default Vue.extend({
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
+  .header{
+  margin-top:35%;
+}
+.text{
+  text-align: center;
+  }
   .container{
    grid-template-columns: auto;
   }
@@ -135,7 +150,6 @@ export default Vue.extend({
   margin:20px;
   text-align: right;
   font-size: 1.5rem;
-  border:none;
 }
 select{
   text-align: center;
