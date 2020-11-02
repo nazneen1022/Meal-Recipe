@@ -3,8 +3,6 @@
 Different Meal Recipes for the hungry and awesome home chefs.
 There are four different categories of Recipes are available.
 
-All pages within the application must be fully responsive.
-
 ## How it is built?
 
 - Using Public API
@@ -40,6 +38,8 @@ All pages within the application must be fully responsive.
 
 1. Randomizer page shows a random item.
 2. Randomizer page contains a button to show another random item.
+
+All pages within the application are fully responsive.
 
 ## How to install?
 
