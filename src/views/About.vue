@@ -1,7 +1,7 @@
 <template>
 <body>
     <div class="container">
-        <img src="@/assets/welcome.jpg" alt="no-Image" width="100%" height="920px"/>
+        <img src="@/assets/welcome.jpg" alt="no-Image" width="100%" height="auto"/>
         <div class="centered"><em>Favorite Meal Recipes</em></div>
     </div> 
 </body>
@@ -28,7 +28,7 @@ body{
   font-size: 3.5rem;
   color:rgb(12, 13, 36);
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   bottom:40%;
   transform: translate(-50%, -50%);

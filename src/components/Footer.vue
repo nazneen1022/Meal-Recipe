@@ -2,7 +2,7 @@
     <div>
         <section class="wrapper">
             <div id="navigation" >
-                <h1>By Category</h1> 
+                <h1>Category</h1> 
                 <ul id="navlist">
                     <li>
                         <a href="/Products/Chicken">Chicken</a>
@@ -19,7 +19,7 @@
                 </ul> 
             </div>
             <div id="navigation">
-                <h1>All Links</h1> 
+                <h1>Links</h1> 
                 <ul id="navlist">
                     <li>
                         <a href="/">Welcome</a>
@@ -45,49 +45,40 @@ export default Vue.extend({
 
 <style scoped>
 .wrapper{
-  width:90%;
-  max-width:1200px;
-  margin:0 auto;
+  width:100%;
+  margin:0;
   clear:both;
 }
 
-/*/////// Navigation ///////*/
 #navigation h1 {
-  font-size:18px;  
-  font-weight:400;
-  margin-bottom:20px;
+  font-size:20px;  
 }
 #navigation {
 	position: relative;
 	float: left;
-  background:transparent;
-  margin:0 1% 0 1% ;
-
+    background:transparent;
+    margin:0 1% 0 1% ;
 }
 #navigation,#navlist{
-  min-width:300px;
-  width:220px;margin:15px;
+  width:220px;
+  margin:15px;
 }
 
 #navlist li {
-  font-size:1.4em;
-  font-weight:300;
-  line-height:160%;
+  font-size:1em;
+  line-height:150%;
 	display: block;
 	text-decoration: none;
 	padding:5px 0 5px 0;
 	list-style: none;
 	border-bottom: 1px solid #e0e0e0;
+    text-align-last: left;
 }
-#navlist li:last-child{border:none;}
-#navlist li a {text-decoration:none;color:rgb(122, 3, 49);}
-/*#navlist li a:hover {}*/
-
-#navlist li a{
-  font-weight:300!important;
+#navlist li:last-child{
+    border:none;
 }
-
-
-
-
+#navlist li a {
+    text-decoration:none;
+    color:rgb(122, 3, 49);
+}
 </style>
