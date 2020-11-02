@@ -1,43 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/Categories">Categories</router-link> | 
-      <router-link to="/Random">Random</router-link>
+    <div>
+      <Navigation />
+    </div>  
+    <div>
+      <Footer />
     </div>
-    <router-view/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+
+//Components
+import Navigation from "@/components/Navigation.vue"
+import Home from "@/views/Home.vue"
+import Footer from "@/components/Footer.vue"
+
 export default Vue.extend({
+  name:"App", 
+  components:{
+    Navigation,
+    Home,
+    Footer,
+  },
 })
 </script>
 
-<style lang="scss">
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  position: fixed;
-  text-align:left;
-  padding:20px;
-  background: #2c3e50;
-
-  a {
-    padding:50px;
-    font-weight: bold;
-    color: white;
-
-    &.router-link-exact-active {
-      color: orangered;
-    }
-  }
-}
 </style>
