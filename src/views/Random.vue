@@ -45,10 +45,13 @@ export default Vue.extend({
         }
     },
     methods: {
+        //asynchronous function to fetch data from API that takes no input and returns nothing
+        //this method populates randomRecipe object with the repsonse from API.
         async getRandomRecipe():Promise<void> {
             try{
             const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/random.php`)
             this.randomRecipe=response.data.meals[0];
+            //fetching each ingredient variable from API response object and populating the allIngredients array
             this.allIngredients=response.data.meals[0].strIngredient1
             for(let i=2; i<=20; i++){
                 const ingredient = response.data.meals[0][`strIngredient${i}`]
@@ -56,15 +59,19 @@ export default Vue.extend({
                 this.allIngredients = this.allIngredients.concat(', ').concat(ingredient);
             }
             }
+            //throw error if API call fails
             catch(error){
                 throw new Error(`API ${error}`);
             };
         },
+        //method that is executed when 'Another' button is clicked
         getAnotherRandom(){
+            //getRandomRecipe function call 
             this.getRandomRecipe()
         }
     },
     mounted(){
+        //getRandomRecipe function call when app is mounted.
         this.getRandomRecipe()
     }
 })
